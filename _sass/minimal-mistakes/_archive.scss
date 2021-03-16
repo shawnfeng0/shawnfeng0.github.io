@@ -219,7 +219,7 @@
 
     @include breakpoint($medium) {
       display: block;
-      font-size: $type-size-6;
+      // font-size: $type-size-6; // Font does not change with page
     }
   }
 
