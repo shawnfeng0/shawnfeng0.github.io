@@ -15,8 +15,6 @@ unar openssl-1.1.1j.tar.gz # 解压
 mkdir -p openssl-build && cd openssl-build # 独立目录构建
 ```
 
-
-
 ## 配置
 
 **如有时间浏览下根目录下的 INSTALL 文件，其中详细描述各种环境的openssl构建过程。**
@@ -28,7 +26,12 @@ mkdir -p openssl-build && cd openssl-build # 独立目录构建
 `./config`可自动检测平台，但这样makefile中会产生-m64的编译选项，所以这里使用`./Configure`直接传入平台参数linux-armv4
 
 ```shell
-../openssl-1.1.1j/Configure --prefix=/home/feng/cross_compile/openssl-build/install --cross-compile-prefix=/opt/gcc-sigmastar-4.9.4/arm-buildroot-linux-uclibcgnueabihf-4.9.4-uclibc-1.0.31/bin/arm-linux- no-asm shared linux-armv4 # 配置
+../openssl-1.1.1j/Configure \
+--prefix=/home/feng/cross_compile/openssl-build/install \
+--cross-compile-prefix=/opt/gcc-sigmastar-4.9.4/arm-buildroot-linux-uclibcgnueabihf-4.9.4-uclibc-1.0.31/bin/arm-linux- \
+no-asm \
+shared \
+linux-armv4
 ```
 
 ## 编译安装
@@ -37,4 +40,3 @@ mkdir -p openssl-build && cd openssl-build # 独立目录构建
 make -j
 make install
 ```
-
