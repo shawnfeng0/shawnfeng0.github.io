@@ -21,23 +21,24 @@ USED_CROSS_COMPILE_PATH=/opt/gcc-sigmastar-4.9.4/arm-buildroot-linux-uclibcgnuea
 PATH=$PATH:$USED_CROSS_COMPILE_PATH
 ```
 
-***此处注意!尽量不要把自己的工具链的路径放在原PATH前面~~PATH=\$USED_CROSS_COMPILE_PATH:\$PATH~~***
+***此处注意!尽量不要把自己的工具链的路径放在原PATH前面: ~~PATH=\$USED_CROSS_COMPILE_PATH:\$PATH~~***
 
 <details>
-<summary>展开原因</summary>
-curl要使用要本机的pkg-config软件在openssl的lib/pkgconfig中确定openssl的lib和头文件的位置。
+<summary markdown="span">点击展开原因</summary>
 
-而有些厂商的工具链中会包含自己的pkg-config软件，但它的搜索路径是却是自己**生成编译链时的路径**，我们不应该使用它。
+curl编译需要使用本机的`pkg-config`命令在openssl库的`lib/pkgconfig`中确定openssl的动态库和头文件位置。
 
-比如我们用的sigmastar的一个工具链时找到的openssl库的位置是
+而有些厂商的工具链中会包含自己的`pkg-config`软件，使用时会出现错误。
 
-`configure: pkg-config: SSL_LDFLAGS: "-L/home/bale.chou/uclibc/buildroot-2017.08/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/home/feng/cross_compile/openssl-build/install/lib  "`
+比如我们用的sigmastar的一个工具链找到的openssl库的位置是
+`/home/bale.chou/uclibc/buildroot-2017.08/output/host/arm-buildroot-linux-uclibcgnueabihf/sysroot/home/feng/cross_compile/openssl-build/install/lib`
 
 而实际的位置是`/home/feng/cross_compile/openssl-build/install/lib`。
 
-以前用hisi(海思)的工具链的时候人家根本没这个工具，因为它本身多余，带上这个工具，但内部路径的却是工具链生成时的主机路径，这不扯淡么。
+以前用hisi(海思)的工具链的时候人家根本没这个工具，这个工具内部根路径使用的是工具链生成时的主机路径，这不扯淡么。
 
-所以要么把工具链的pkg-config删掉，要么把执行路径放到系统路径后面降低命令搜索优先级：`PATH=$PATH:$USED_CROSS_COMPILE_PATH`
+解决方法是把工具链的`pkg-config`删掉，要么把执行路径放到系统路径后面降低命令搜索优先级：`PATH=$PATH:$USED_CROSS_COMPILE_PATH`
+
 </details>
 
 ## 配置
@@ -55,7 +56,7 @@ PKG_CONFIG_PATH=$OPENSSL_INSTALL_PATH/lib/pkgconfig \
 ```
 
 <details>
-<summary>展开解释(更细节的配置请查看官方文档)</summary>
+<summary markdown="span">点击展开解释(更细节的配置请查看官方文档)</summary>
 
 ### 链接openssl库
 
