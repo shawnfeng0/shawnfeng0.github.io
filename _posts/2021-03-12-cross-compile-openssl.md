@@ -11,9 +11,16 @@ OpenSSL所用版本为openssl-1.1.1j
 下载：[OpenSSL官网下载](https://www.openssl.org/source/) 文档所写时最新版本为：openssl-1.1.1j.tar.gz
 
 ```shell
+WORK_DIRECTION=~/cross_compile # 工作目录和下载文件存放目录
+cd $WORK_DIRECTION
+OPENSSL_BUILD_PATH=$WORK_DIRECTION/openssl-build # curl 的构建目录
+# 交叉编译前缀
+CROSS_COMPILE_PREFIX=/opt/gcc-sigmastar-4.9.4/arm-buildroot-linux-uclibcgnueabihf-4.9.4-uclibc-1.0.31/bin/arm-linux-
 unar openssl-1.1.1j.tar.gz # 解压
-mkdir -p openssl-build && cd openssl-build # 独立目录构建
+mkdir -p $OPENSSL_BUILD_PATH && cd $OPENSSL_BUILD_PATH # 独立目录构建
 ```
+
+**openssl-1.0.0**版本不能在独立的目录构建。
 
 ## 配置
 
@@ -27,8 +34,8 @@ mkdir -p openssl-build && cd openssl-build # 独立目录构建
 
 ```shell
 ../openssl-1.1.1j/Configure \
---prefix=/home/feng/cross_compile/openssl-build/install \
---cross-compile-prefix=/opt/gcc-sigmastar-4.9.4/arm-buildroot-linux-uclibcgnueabihf-4.9.4-uclibc-1.0.31/bin/arm-linux- \
+--prefix=$OPENSSL_BUILD_PATH/install \
+--cross-compile-prefix=$CROSS_COMPILE_PREFIX \
 no-asm \
 shared \
 linux-armv4
