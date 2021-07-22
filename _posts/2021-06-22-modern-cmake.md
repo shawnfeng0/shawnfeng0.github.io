@@ -1,6 +1,6 @@
 ---
 title: "Modern Cmake常用指令"
-categories: cmake 编译
+categories: 编译
 tags: cmake 编译
 ---
 
