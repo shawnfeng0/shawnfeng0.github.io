@@ -1,7 +1,7 @@
 ---
 title:  "博客搭建-记录"
-categories: 博客搭建
-tags: blog jekyll
+categories: blog
+tags: blog
 ---
 
 更新（2021-03-17）：已经重新配置，直接使用minimal-mistakes的源码构建，并在其基础上做一些页面布局的修改。具体的之后更新。

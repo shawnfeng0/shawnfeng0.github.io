@@ -1,7 +1,7 @@
 ---
 title:  "交叉编译-curl"
 categories: 交叉编译
-tags: arm linux 交叉编译 编译
+tags: curl
 ---
 
 ## 准备工作

@@ -1,6 +1,6 @@
 ---
 title: "C/C++库设计经验（持续总结）"
-categories: 技术
+categories: 编码经验
 tags: 编码经验
 ---
 

@@ -1,7 +1,7 @@
 ---
 title:  "交叉编译-openssl"
 categories: 交叉编译
-tags: arm linux 交叉编译 编译
+tags: openssl
 ---
 
 OpenSSL所用版本为openssl-1.1.1j
