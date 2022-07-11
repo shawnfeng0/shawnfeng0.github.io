@@ -19,13 +19,13 @@ tags: ndk
 编译环境：windows下的wsl-ubuntu子系统
 
 分别下载这几个库，切换到当前最新最稳定的的git分支或标签。
-curl: https://github.com/curl/curl.git 切换到curl-7_83_1标签
+curl: <https://github.com/curl/curl.git> 切换到curl-7_83_1标签
 
-openssl: https://github.com/openssl/openssl.git 切换到OpenSSL_1_1_1-stable分支
+openssl: <https://github.com/openssl/openssl.git> 切换到OpenSSL_1_1_1-stable分支
 
-zlib: https://github.com/madler/zlib.git master分支
+zlib: <https://github.com/madler/zlib.git> master分支
 
-aliyun-oss-cpp-sdk: https://github.com/aliyun/aliyun-oss-cpp-sdk.git master分支
+aliyun-oss-cpp-sdk: <https://github.com/aliyun/aliyun-oss-cpp-sdk.git> master分支
 
 下载ndk21: [android-ndk-r21e-linux-x86_64.zip](https://dl.google.com/android/repository/android-ndk-r21e-linux-x86_64.zip) 自行解压缩
 
@@ -202,4 +202,3 @@ cd "$INSTALL_DIR" || exit
 
 tar czf curl_openssl_oss_library.tar.gz *
 ```
-
