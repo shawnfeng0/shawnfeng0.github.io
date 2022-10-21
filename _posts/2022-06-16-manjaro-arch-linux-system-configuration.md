@@ -28,3 +28,9 @@ systemctl enable rc-local.service
 ```
 
 接下来在/etc/rc.local里面添加需要开机运行的脚本即可。
+
+## 关闭蜂鸣器声音（终端警报）
+
+Setting -> Accessibility -> Bell -> Audible bell 选择 Disable
+
+但是过一段时间可能又会有，打开配置之后发现已经关闭了，这时候打开再关闭一下就好了。这个配置和表现对不上，不知道是个什么bug。
